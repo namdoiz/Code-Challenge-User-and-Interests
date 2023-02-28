@@ -1,0 +1,12 @@
+<html>
+  <body>
+  <h1> User Names</h1>
+  <ul>
+    <% just_names(@contents).each do |name|%>
+      <li>
+        <h3><a href= "/users/<%= name %>"><%= name %></a></h3>
+      </li>
+      <% end %>
+  </ul>
+  </body>
+</html

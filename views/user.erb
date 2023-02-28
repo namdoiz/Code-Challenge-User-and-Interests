@@ -1,0 +1,23 @@
+  <h1> <%= @name %></h1>
+  <h4>Email:</h4>
+  <ul>
+    <li><%= @email_and_interests[:email] %></li>
+  </ul>
+  <h4> Interests </h4>
+  <ul>
+    <% @email_and_interests[:interests].each do |interest| %>
+    <li>
+      <%= interest.capitalize %>
+    </li>
+    <%end%>
+  </ul>
+  <h3> Other Users </h3>
+
+  <ul>
+  <% just_names(@contents).reject{|name| name.to_s == @name.to_s}.each do |name|%>
+    <li>
+      <a href= "/users/<%= name %>"><%= name %></a>
+    </li>
+    <% end %>
+  </ul>
+  <h4> <p> There are <%= @number_of_users %> users with a total of <%= count_interests(@contents) %> interests. </p> </h4>
